@@ -1,0 +1,101 @@
+﻿@model IEnumerable<HockeyStats2019.Models.ShowCase>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShowCaseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgeCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coach1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coach2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coach3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GeneralManager)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowCaseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arena.ArenaName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgeCategory.SeriesName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.ArenaAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coach.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coach1.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coach2.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coach3.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeneralManager.FullName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

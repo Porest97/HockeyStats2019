@@ -1,0 +1,59 @@
+﻿@model IEnumerable<HockeyStats2019.Models.Arena>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Arenas</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenaName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenaStreetAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenaZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenaCounty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenaCountry)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenaName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenaStreetAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenaZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenaCounty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenaCountry)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
